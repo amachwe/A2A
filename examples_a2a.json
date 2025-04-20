@@ -1,0 +1,768 @@
+{
+  "AgentAuthentication": {
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "credentials": "some_credentials_string"
+  },
+  "AgentCapabilities": {
+    "streaming": false,
+    "pushNotifications": true,
+    "stateTransitionHistory": false
+  },
+  "AgentCard": {
+    "name": "Example Agent",
+    "description": "This is an example agent.",
+    "url": "https://example.com/agent",
+    "provider": {
+      "organization": "Example Organization",
+      "url": "https://example.com"
+    },
+    "version": "1.0.0",
+    "documentationUrl": "https://example.com/docs",
+    "capabilities": {
+      "streaming": true,
+      "pushNotifications": false,
+      "stateTransitionHistory": true
+    },
+    "authentication": {
+      "schemes": [
+        "apiKey",
+        "oauth2"
+      ],
+      "credentials": "Some credentials here"
+    },
+    "defaultInputModes": [
+      "text",
+      "voice"
+    ],
+    "defaultOutputModes": [
+      "text",
+      "voice"
+    ],
+    "skills": [
+      {
+        "id": "skill1",
+        "name": "Skill 1",
+        "description": "This is the description of skill 1.",
+        "tags": [
+          "tag1",
+          "tag2"
+        ],
+        "examples": [
+          "Example 1",
+          "Example 2"
+        ],
+        "inputModes": [
+          "text"
+        ],
+        "outputModes": [
+          "text"
+        ]
+      },
+      {
+        "id": "skill2",
+        "name": "Skill 2"
+      }
+    ]
+  },
+  "AgentProvider": {
+    "organization": "Example Organization",
+    "url": "https://example.org"
+  },
+  "AgentSkill": {
+    "id": "skill-123",
+    "name": "My Skill",
+    "description": "This is a sample skill.",
+    "tags": [
+      "tag1",
+      "tag2"
+    ],
+    "examples": [
+      "example1",
+      "example2"
+    ],
+    "inputModes": [
+      "mode1",
+      "mode2"
+    ],
+    "outputModes": [
+      "mode3",
+      "mode4"
+    ]
+  },
+  "Artifact": {
+    "name": "My Artifact",
+    "description": "This is a description of my artifact.",
+    "parts": [
+      {
+        "type": "text",
+        "content": "This is some text content."
+      },
+      {
+        "type": "file",
+        "path": "/path/to/my/file.txt",
+        "size": 1234
+      },
+      {
+        "type": "data",
+        "data": "SGVsbG8gV29ybGQh"
+      }
+    ],
+    "index": 1,
+    "append": true,
+    "lastChunk": false,
+    "metadata": {
+      "source": "database",
+      "version": "1.0"
+    }
+  },
+  "AuthenticationInfo": {
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "credentials": "some_credentials_string"
+  },
+  "PushNotificationNotSupportedError": {
+    "code": -32003,
+    "message": "Push Notification is not supported",
+    "data": null
+  },
+  "CancelTaskRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/cancel",
+    "params": {
+      "id": "myTaskId",
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    }
+  },
+  "CancelTaskResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "id": "task123",
+      "sessionId": "session456",
+      "status": {
+        "state": "completed",
+        "startTime": "2024-07-26T10:00:00Z",
+        "endTime": "2024-07-26T10:30:00Z"
+      },
+      "artifacts": [
+        {
+          "name": "artifact1",
+          "uri": "uri1"
+        },
+        {
+          "name": "artifact2",
+          "uri": "uri2"
+        }
+      ],
+      "history": [
+        {
+          "time": "2024-07-26T10:01:00Z",
+          "message": "Task started"
+        },
+        {
+          "time": "2024-07-26T10:30:00Z",
+          "message": "Task completed"
+        }
+      ],
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    },
+    "error": null
+  },
+  "DataPart": {
+    "type": "data",
+    "data": {
+      "key1": "value1",
+      "key2": 123
+    },
+    "metadata": {
+      "source": "example"
+    }
+  },
+  "FileContent": {
+    "name": "my_file.txt",
+    "mimeType": "text/plain",
+    "bytes": "SGVsbG8gV29ybGQh",
+    "uri": null
+  },
+  "FilePart": {
+    "type": "file",
+    "file": {
+      "name": "my_document.pdf",
+      "mimeType": "application/pdf",
+      "bytes": "JVBERi0xLj...",
+      "uri": null
+    },
+    "metadata": {
+      "author": "John Doe",
+      "creationDate": "2024-10-27"
+    }
+  },
+  "GetTaskPushNotificationRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/pushNotification/get",
+    "params": {
+      "id": "someTaskId",
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    }
+  },
+  "GetTaskPushNotificationResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "id": "task123",
+      "pushNotificationConfig": {
+        "id": "pushConfig456",
+        "pushNotificationConfig": {
+          "someKey": "someValue"
+        }
+      }
+    }
+  },
+  "GetTaskRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/get",
+    "params": {
+      "id": "myTaskId",
+      "historyLength": 10,
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    }
+  },
+  "GetTaskResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "id": "task123",
+      "sessionId": "session456",
+      "status": {
+        "state": "COMPLETED",
+        "details": "Task completed successfully"
+      },
+      "artifacts": [
+        {
+          "name": "artifact1.txt",
+          "path": "/path/to/artifact1.txt",
+          "type": "text/plain",
+          "size": 1024
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2024-07-26T10:00:00Z",
+          "level": "INFO",
+          "message": "Task started"
+        },
+        {
+          "timestamp": "2024-07-26T10:01:00Z",
+          "level": "INFO",
+          "message": "Task processing"
+        },
+        {
+          "timestamp": "2024-07-26T10:02:00Z",
+          "level": "INFO",
+          "message": "Task completed"
+        }
+      ],
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    }
+  },
+  "InternalError": {
+    "code": -32603,
+    "message": "Internal error",
+    "data": {
+      "someKey": "someValue"
+    }
+  },
+  "InvalidParamsError": {
+    "code": -32602,
+    "message": "Invalid parameters",
+    "data": {
+      "param1": "value1",
+      "param2": 123
+    }
+  },
+  "InvalidRequestError": {
+    "code": -32600,
+    "message": "Request payload validation error",
+    "data": {
+      "someKey": "someValue"
+    }
+  },
+  "JSONParseError": {
+    "code": -32700,
+    "message": "Invalid JSON payload",
+    "data": {
+      "detail": "Unexpected token in JSON at position 12"
+    }
+  },
+  "JSONRPCError": {
+    "code": 12345,
+    "message": "An error occurred",
+    "data": {
+      "detail": "More specific error information",
+      "timestamp": "2024-10-27T12:00:00Z"
+    }
+  },
+  "JSONRPCMessage": {
+    "jsonrpc": "2.0",
+    "id": 1
+  },
+  "JSONRPCRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "myMethod",
+    "params": {
+      "param1": "value1",
+      "param2": 123
+    }
+  },
+  "JSONRPCResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "name": "John Doe",
+      "age": 30
+    }
+  },
+  "Message": {
+    "role": "user",
+    "parts": [
+      {
+        "type": "text",
+        "text": "This is a text part."
+      },
+      {
+        "type": "file",
+        "name": "mydocument.pdf",
+        "size": 12345,
+        "url": "http://example.com/mydocument.pdf"
+      },
+      {
+        "type": "data",
+        "data": {
+          "key1": "value1",
+          "key2": 123
+        }
+      }
+    ],
+    "metadata": {
+      "conversationId": "12345",
+      "timestamp": "2024-07-27T10:00:00Z"
+    }
+  },
+  "MethodNotFoundError": {
+    "code": -32601,
+    "message": "Method not found",
+    "data": null
+  },
+  "PushNotificationConfig": {
+    "url": "https://example.com/push",
+    "token": "a-valid-token",
+    "authentication": {
+      "schemes": [
+        "basic"
+      ],
+      "credentials": "some_credentials"
+    }
+  },
+  "Part": {
+    "type": "text",
+    "text": "This is some sample text.",
+    "metadata": {
+      "author": "Example User",
+      "creationDate": "2024-10-27"
+    }
+  },
+  "SendTaskRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/send",
+    "params": {
+      "id": "task123",
+      "sessionId": "session456",
+      "message": {
+        "content": "Hello, world!",
+        "type": "text"
+      },
+      "pushNotification": {
+        "title": "Task Notification",
+        "body": "Your task has been sent."
+      },
+      "historyLength": 10,
+      "metadata": {
+        "priority": "high",
+        "user": "john.doe"
+      }
+    }
+  },
+  "SendTaskResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "id": "task-123",
+      "sessionId": "session-456",
+      "status": {
+        "state": "COMPLETED",
+        "message": "Task completed successfully"
+      },
+      "artifacts": [
+        {
+          "name": "output.txt",
+          "type": "text/plain",
+          "uri": "s3://bucket/output.txt"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2024-07-26T10:00:00Z",
+          "level": "INFO",
+          "message": "Task started"
+        },
+        {
+          "timestamp": "2024-07-26T10:01:00Z",
+          "level": "INFO",
+          "message": "Task processing"
+        },
+        {
+          "timestamp": "2024-07-26T10:02:00Z",
+          "level": "INFO",
+          "message": "Task completed"
+        }
+      ],
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    },
+    "error": null
+  },
+  "SendTaskStreamingRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/sendSubscribe",
+    "params": {
+      "id": "uniqueSessionId123",
+      "sessionId": "anotherSessionId456",
+      "message": {
+        "content": "This is a sample message",
+        "type": "text"
+      },
+      "pushNotification": {
+        "enabled": true,
+        "url": "https://example.com/push"
+      },
+      "historyLength": 10,
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    }
+  },
+  "SendTaskStreamingResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "id": "task-123",
+      "status": {
+        "id": "status-456",
+        "state": "RUNNING",
+        "progress": 50
+      },
+      "final": false,
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    },
+    "error": null
+  },
+  "SetTaskPushNotificationRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/pushNotification/set",
+    "params": {
+      "id": "task123",
+      "pushNotificationConfig": {
+        "title": "This is a title",
+        "body": "This is the body of the notification",
+        "icon": "path/to/icon.png",
+        "sound": "default"
+      }
+    }
+  },
+  "SetTaskPushNotificationResponse": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+      "id": "task123",
+      "pushNotificationConfig": {
+        "someKey": "someValue"
+      }
+    }
+  },
+  "Task": {
+    "id": "task123",
+    "sessionId": "session456",
+    "status": {
+      "state": "running",
+      "message": {
+        "role": "agent",
+        "parts": [
+          {
+            "content": "Agent started processing task.",
+            "contentType": "text/plain"
+          }
+        ],
+        "metadata": {
+          "agentId": "agent-789"
+        }
+      },
+      "timestamp": "2024-07-26T10:30:00Z"
+    },
+    "artifacts": [
+      {
+        "name": "input_data.csv",
+        "description": "Input data for the task.",
+        "parts": [
+          {
+            "content": "data,values\n1,10\n2,20",
+            "contentType": "text/csv"
+          }
+        ],
+        "index": 0,
+        "append": false,
+        "lastChunk": true,
+        "metadata": {
+          "source": "database"
+        }
+      },
+      {
+        "name": "output_result.json",
+        "description": "Task output result.",
+        "parts": [
+          {
+            "content": "{\"result\": 30}",
+            "contentType": "application/json"
+          }
+        ],
+        "index": 1,
+        "append": false,
+        "lastChunk": true,
+        "metadata": {}
+      }
+    ],
+    "history": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "content": "Task initiated.",
+            "contentType": "text/plain"
+          }
+        ],
+        "metadata": {}
+      },
+      {
+        "role": "agent",
+        "parts": [
+          {
+            "content": "Processing input data.",
+            "contentType": "text/plain"
+          }
+        ],
+        "metadata": {}
+      }
+    ],
+    "metadata": {
+      "priority": "high",
+      "user": "john.doe"
+    }
+  },
+  "TaskPushNotificationConfig": {
+    "id": "task123",
+    "pushNotificationConfig": {
+      "url": "https://example.com/push",
+      "token": "abcdef123456",
+      "authentication": {
+        "username": "user123",
+        "password": "password456"
+      }
+    }
+  },
+  "TaskNotCancelableError": {
+    "code": -32002,
+    "message": "Task cannot be canceled",
+    "data": null
+  },
+  "TaskNotFoundError": {
+    "code": -32001,
+    "message": "Task not found",
+    "data": null
+  },
+  "TaskIdParams": {
+    "id": "myTaskId",
+    "metadata": {
+      "key1": "value1",
+      "key2": 123
+    }
+  },
+  "TaskQueryParams": {
+    "id": "myTaskId",
+    "historyLength": 10,
+    "metadata": {
+      "key1": "value1",
+      "key2": 123
+    }
+  },
+  "TaskSendParams": {
+    "id": "task123",
+    "sessionId": "session456",
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Hello, world!"
+        }
+      ],
+      "metadata": {
+        "key1": "value1"
+      }
+    },
+    "pushNotification": {
+      "url": "https://example.com/push",
+      "token": "abcdef123456",
+      "authentication": {
+        "type": "basic",
+        "username": "user",
+        "password": "password"
+      }
+    },
+    "historyLength": 10,
+    "metadata": {
+      "taskType": "chat"
+    }
+  },
+  "TaskState": {
+    "TaskState": "completed"
+  },
+  "TaskStatus": {
+    "state": "submitted",
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "content": "This is a part of the message.",
+          "type": "text"
+        }
+      ],
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    },
+    "timestamp": "2024-07-26T12:34:56.789Z"
+  },
+  "TaskResubscriptionRequest": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tasks/resubscribe",
+    "params": {
+      "id": "myTaskId",
+      "historyLength": 10,
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    }
+  },
+  "TaskStatusUpdateEvent": {
+    "id": "task-123",
+    "status": {
+      "state": "COMPLETED",
+      "message": {
+        "code": "SUCCESS",
+        "details": "Task completed successfully."
+      },
+      "timestamp": "2024-10-27T10:30:00Z"
+    },
+    "final": true,
+    "metadata": {
+      "processingTime": 120,
+      "workerId": "worker-456"
+    }
+  },
+  "TaskArtifactUpdateEvent": {
+    "id": "my_task_artifact_id",
+    "artifact": {
+      "name": "My Artifact",
+      "description": "This is a description of my artifact.",
+      "parts": [
+        {
+          "someKey": "someValue"
+        },
+        {
+          "anotherKey": 123
+        }
+      ],
+      "index": 1,
+      "append": true,
+      "lastChunk": false,
+      "metadata": {
+        "key1": "value1",
+        "key2": 123
+      }
+    },
+    "metadata": {
+      "source": "systemA"
+    }
+  },
+  "TextPart": {
+    "type": "text",
+    "text": "This is some example text.",
+    "metadata": {
+      "author": "John Doe",
+      "date": "2024-10-27"
+    }
+  },
+  "UnsupportedOperationError": {
+    "code": -32004,
+    "message": "This operation is not supported",
+    "data": null
+  },
+  "A2ARequest": {
+    "jsonrpc": "2.0",
+    "id": 123,
+    "method": "tasks/send",
+    "params": {
+      "task_name": "MyTask",
+      "payload": {
+        "message": "Hello, world!"
+      },
+      "schedule_time": "2024-03-10T10:00:00Z",
+      "retries": 3,
+      "retry_delay": 60
+    }
+  }
+}
